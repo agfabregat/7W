@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-app-title="My Awesome Links"></title>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+    <style data-app-style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding-top: 60px; /* Adjust based on header height */
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #eee;
+            color: #333;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        [data-app-back-button] {
+            font-size: 1em;
+            padding: 8px 15px;
+            border: 1px solid #ccc;
+            background-color: #ddd;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        [data-app-header-title] {
+            font-size: 1.2em;
+            text-align: center;
+            flex-grow: 1; /* Allows the title to take up available space */
+        }
+
+        [data-app-header-title] a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        [data-app-content] {
+            padding: 20px;
+        }
+
+        [data-app-link-item] {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        [data-app-link-item]:hover {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <header data-app-header>
+        <button data-app-back-button data-back-action="history.back()">Back</button>
+        <h1 data-app-header-title>
+            <a data-title-link data-default-href="index.html"></a>
+        </h1>
+        <div data-header-spacer></div>
+    </header>
+
+    <div data-app-content>
+    </div>
+
+    <script data-app-script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const titleElement = document.querySelector('[data-app-title]');
+            const headerTitleLink = document.querySelector('[data-title-link]');
+            const contentElement = document.querySelector('[data-app-content]');
+            const backButton = document.querySelector('[data-app-back-button]');
+
+            if (titleElement && headerTitleLink) {
+                headerTitleLink.textContent = titleElement.getAttribute('data-app-title');
+                headerTitleLink.href = headerTitleLink.getAttribute('data-default-href');
+            }
+
+            if (backButton) {
+                const backAction = backButton.getAttribute('data-back-action');
+                backButton.addEventListener('click', () => {
+                    eval(backAction); // Be cautious with eval, but suitable for this simple case
+                });
+            }
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const currentJsonFile = urlParams.get('json') || 'default_links.json'; // Default file if no query string
+
+            fetch(currentJsonFile)
+                .then(response => response.json())
+                .then(data => {
+                    if (data && Array.isArray(data)) {
+                        const halfLength = Math.ceil(data.length / 2); // Calculate half the number of links
+
+                        data.forEach((link, index) => {
+                            const linkElement = document.createElement('a');
+                            linkElement.setAttribute('data-app-link-item', '');
+                            linkElement.textContent = link.displayName;
+
+                            if (index < halfLength) {
+                                // First half of the links point back to index.html with a new query string
+                                linkElement.href = `index.html?json=another_links_${index + 1}.json`;
+                            } else {
+                                // Second half of the links point to their original URLs
+                                linkElement.href = link.url;
+                            }
+                            contentElement.appendChild(linkElement);
+                        });
+                    } else {
+                        contentElement.textContent = 'Error loading links.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching JSON:', error);
+                    contentElement.textContent = 'Failed to load links.';
+                });
+        });
+    </script>
+</body>
+</html>
