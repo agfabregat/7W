@@ -32,7 +32,6 @@
             z-index: 100;
             display: flex;
             align-items: center;
-            justify-content: space-between;
             box-shadow: 0 2px 10px rgba(0, 255, 204, 0.2); /* Subtle cyan shadow */
         }
         [data-app-back-button] {
@@ -51,11 +50,16 @@
         }
 
         [data-app-header-title-container] {
-        display: flex;
-        align-items: center;
-        flex-grow: 1; /* Allows the title and logo to take up available space */
-        justify-content: center; /* Center the logo and title together */
-    }
+            display: flex;
+            align-items: center;
+            /* flex-grow: 1; Remove this */
+            justify-content: center; /* Center content within the container */
+            width: 100%; /* Make it take the full width */
+            position: absolute; /* Position it absolutely within the header */
+            left: 0;
+            top: 0;
+            height: 100%; /* Make it span the full height of the header */
+        }
 
     [data-app-header-title] {
         /*font-size: 1.6em;*/
@@ -81,6 +85,10 @@
             gap: 15px; /* Spacing between links */
         }
 
+        [data-header-spacer] {
+            width: auto; /* Ensure it doesn't interfere with centering */
+        }
+
 
         [data-app-link-item] {
             background-color: #222;
@@ -103,9 +111,8 @@
             transform: translateY(-2px); /* Subtle lift on hover */
 
         }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
+/* Responsive adjustments */
+@media (max-width: 768px) {
             body {
                 font-size: 0.9em;
                 padding-top: 60px;
@@ -126,23 +133,90 @@
 
             [data-app-content] {
                 padding: 20px;
-                flex-direction: column;
                 gap: 10px;
+                justify-content: flex-start; /* Keep start alignment for smaller tablets */
             }
 
             [data-app-link-item] {
-                width: 100%;
+                min-width: 150px; /* Adjust minimum width for tablets */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.85em;
+                padding-top: 55px;
+            }
+
+            header {
+                padding: 8px 12px;
+            }
+
+            [data-app-header-title] {
+                font-size: 1.1em;
+            }
+
+            [data-app-logo] {
+                height: 20px;
+                margin-right: 8px;
+            }
+
+            [data-app-content] {
+                padding: 15px;
+                flex-direction: column; /* Switch to vertical layout for smaller screens */
+                gap: 8px;
+                align-items: center; /* Center the items horizontally */
+            }
+
+            [data-app-link-item] {
+                width: 90%; /* Reduce the width to have left and right margins */
                 min-width: auto;
                 padding: 10px 15px;
+                box-sizing: border-box; /* Ensure padding doesn't increase the width beyond 90% */
+            }
+        }
+
+        @media (max-width: 320px) {
+            body {
+                font-size: 0.8em;
+                padding-top: 50px;
+            }
+
+            header {
+                padding: 6px 10px;
+            }
+
+            [data-app-header-title] {
+                font-size: 1em;
+            }
+
+            [data-app-logo] {
+                height: 18px;
+                margin-right: 6px;
+            }
+
+            [data-app-content] {
+                padding: 10px;
+                flex-direction: column;
+                gap: 6px;
+                align-items: center; /* Center the items horizontally */
+            }
+
+            [data-app-link-item] {
+                width: 90%; /* Maintain the 90% width for consistency */
+                min-width: auto;
+                padding: 8px 12px;
+                box-sizing: border-box; /* Ensure padding doesn't affect the 90% width */
             }
         }
     </style>
+
 </head>
 <body>
     <header data-app-header>
         <button data-app-back-button data-back-action="history.back()">Back</button>
         <div data-app-header-title-container style="display: flex; align-items: center;">
-            <img data-app-logo src="favicon-96x96.png" alt="Logo" style="height: 24px; margin-right: 10px;">
+            <img data-app-logo src="favicon-96x96.png" alt="Logo" style="margin-right: 5px;">
             <h1 data-app-header-title style="margin: 0;">
                 <a data-title-link data-default-href="index.html"></a>
             </h1>
