@@ -1,6 +1,6 @@
 [
-    {"displayName": "Link 1 (Goes to another JSON)", "url": "https://example.com/1"},
-    {"displayName": "Link 2 (Goes to another JSON)", "url": "https://example.com/2"},
+    {"displayName": "GOOGLE", "url": "https://google.com"},
+    {"displayName": "Link 2 (JSON)", "url": "another_links_1"},
     {"displayName": "Link 3 (Goes to another JSON)", "url": "https://example.com/3"},
     {"displayName": "Link 4", "url": "https://example.com/4"},
     {"displayName": "Link 5", "url": "https://example.com/5"}
