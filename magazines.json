@@ -1,0 +1,47 @@
+[
+    {"url":"http://www.worldnetdaily.com/","displayName":"WorldNetDaily"},
+    {"url":"http://www.prospect.org","displayName":"Amer.Prospect"},
+    {"url":"http://www.economist.com/","displayName":"TheEconomist"},
+    {"url":"http://www.frontpagemag.com/","displayName":"FrontPage"},
+    {"url":"http://www.amconmag.com/","displayName":"AmConservative"},
+    {"url":"http://takimag.com/","displayName":"Taki"},
+    {"url":"http://spectator.org/","displayName":"Am Spectator"},
+    {"url":"http://www.city-journal.org/","displayName":"CityJournal"},
+    {"url":"http://www.thenewrepublic.com/","displayName":"The New Republic"},
+    {"url":"http://www.nationalreview.com/","displayName":"NReview online"},
+    {"url":"http://www.slate.com","displayName":"Slate"},
+    
+    {"url":"http://www.villagevoice.com/","displayName":"Village Voice"},
+    {"url":"http://www.salon.com","displayName":"Salon"},
+    {"url":"http://www.theatlantic.com","displayName":"Atlantic Monthly"},
+    {"url":"http://www.newyorker.com/","displayName":"New Yorker"},
+    {"url":"http://www.nymag.com/","displayName":"New York Mag"},
+    
+    {"url":"http://www.nyobserver.com/","displayName":"NY Observer"},
+    {"url":"http://www.thenation.com/","displayName":"The Nation"},
+    {"url":"http://nationaljournal.com","displayName":"National Journal"},
+    {"url":"http://www.forbes.com/","displayName":"Forbes"},
+    {"url":"http://www.fortune.com/","displayName":"Fortune"},
+    {"url":"http://www.usnews.com/","displayName":"USNews"},
+    {"url":"http://www.time.com/","displayName":"TIME"},
+    {"url":"http://www.msnbc.com/news/NW-front_Front.asp","displayName":"NewsWeek"},
+    {"url":"http://www.popularmechanics.com/","displayName":"PopMechanics"},
+    {"url":"https://www.sailmagazine.com/","displayName":"SAIL Mag"},
+    {"url":"http://www.consumerreports.org/","displayName":"ConsumerRepts"},
+    {"url":"http://www.reason.com/index.html","displayName":"Reason"},
+    {"url":"http://www.nypress.com/","displayName":"NYPress"},
+    {"url":"http://www.techcentralstation.com/","displayName":"TechCentralStation"},
+    {"url":"http://www.sciam.com/","displayName":"ScientificAm"},
+    {"url":"http://www.popphoto.com/","displayName":"PopularPhotography"},
+    {"url":"https://www.dpmag.com/","displayName":"Digital Photography"},
+    {"url":"http://www.boatingmag.com/","displayName":"BoatingMag"},
+    {"url":"http://sailingworld.com/","displayName":"SailingWorld"},
+    {"url":"http://www.rollingstone.com/","displayName":"Rolling Stone"},
+    {"url":"http://motherjones.com/","displayName":"Mother Jones"},
+    {"url":"https://www.harpersbazaar.com/","displayName":"Harpers Bazaar"},
+    
+    {"url":"http://www.humaneventsonline.com/","displayName":"Human Events"},
+    {"url":"http://www.commentarymagazine.com/","displayName":"Commentary"}
+    
+    ]
+    

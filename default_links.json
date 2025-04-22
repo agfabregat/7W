@@ -3,5 +3,10 @@
     {"displayName": "NEWS", "url": "news.json"},
     {"displayName": "NEWS2", "url": "news2.json"},
     {"displayName": "PROTOTYPES", "url": "prototypes.json"},
-    {"displayName": "RadioTV", "url": "radioTV.json"}
+    {"displayName": "RadioTV", "url": "radioTV.json"},
+    {"displayName": "Magazines", "url": "magazines.json"},
+    {"displayName": "blogs", "url": "blogs.json"},
+    {"displayName": "Magazines", "url": "magazines.json"}
+
+
 ]
