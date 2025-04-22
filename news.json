@@ -1,0 +1,39 @@
+[
+	{"url":"https://www.dailymail.co.uk/ushome/index.html","displayName":"Daily Mail US"},
+    {"url":"https://www.msn.com/en-us/news","displayName":"MSN News"},
+    {"url":"https://www.reuters.com/","displayName":"Reuters"},
+    {"url":"https://www.afp.com/en","displayName":"AFP"},
+    {"url":"https://edition.cnn.com/","displayName":"CNN"},
+    {"url":"https://www.wsj.com/","displayName":"WSJ"},
+
+    {"url":"https://www.economist.com/","displayName":"The Economist"},
+    {"url":"https://www.ft.com/world","displayName":"Financial Times"},
+
+    {"url":"https://www.aljazeera.com/","displayName":"AlJazeera"},
+    {"url":"https://www.bloomberg.com/","displayName":"Bloomberg"},
+    {"url":"https://news.sky.com/","displayName":"Sky"},
+    {"url":"https://www.bbc.com/news","displayName":"BBC"},
+    {"url":"https://esradio.libertaddigital.com/c.php?op=radio.search&program_id=20","displayName":"Es la Mañana de Federico"},
+    {"url":"https://citizenfreepress.com/","displayName":"CitizenFreePress"},
+    {"url":"https://freerepublic.com/tag/news-forum/index","displayName":"FreeRepublic"},
+
+    
+    {"url":"https://www.theepochtimes.com/","displayName":"The Epoch Times"},
+    {"url":"https://freebeacon.com/","displayName":"Free Beacon"},
+    {"url":"https://spectator.org/","displayName":"American Spectator"},
+    {"url":"https://newrepublic.com/","displayName":"The New Republic"},
+    {"url":"https://www.salon.com/","displayName":"Salon"},
+    {"url":"https://www.theatlantic.com/","displayName":"The Atlantic"},
+    {"url":"https://www.thenation.com/","displayName":"The Nation"},
+    {"url":"https://prospect.org/","displayName":"The American Prospect"},
+    {"url":"https://www.frontpagemag.com/","displayName":"Frontpage Magazine"},
+    {"url":"https://www.takimag.com/","displayName":"Taki Mag"},
+    {"url":"https://www.rollingstone.com/","displayName":"Rolling Stone"},
+    {"url":"https://www.vanityfair.com/","displayName":"Vanity Fair"},
+    {"url":"https://www.esquire.com/","displayName":"Esquire"},
+
+    
+    {"url":"https://www.newyorker.com/","displayName":"The New Yorker"},
+    {"url":"https://www.villagevoice.com/","displayName":"Village Voice"}
+  
+]

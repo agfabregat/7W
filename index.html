@@ -214,7 +214,7 @@
 </head>
 <body>
     <header data-app-header>
-        <button data-app-back-button data-back-action="history.back()">Back</button>
+        <button type="button" data-app-back-button data-back-action="history.back()">Back</button>
         <div data-app-header-title-container style="display: flex; align-items: center;">
             <img data-app-logo src="favicon-96x96.png" alt="Logo" style="margin-right: 5px;">
             <h1 data-app-header-title style="margin: 0;">
@@ -229,67 +229,79 @@
 
     <script data-app-script>
         document.addEventListener('DOMContentLoaded', function() {
-            const titleElement = document.querySelector('[data-app-title]');
-            const headerTitleLink = document.querySelector('[data-title-link]');
-            const contentElement = document.querySelector('[data-app-content]');
-            const backButton = document.querySelector('[data-app-back-button]');
-            const logoElement = document.querySelector('[data-app-logo]');
-
-            
-            if (titleElement && headerTitleLink) {
-                headerTitleLink.textContent = titleElement.getAttribute('data-app-title');
-                headerTitleLink.href = headerTitleLink.getAttribute('data-default-href');
-                document.title = headerTitleLink.textContent;
-            }
-
-            if (logoElement) {
-                // You might want to dynamically set the logo source here if needed
-                // logoElement.src = 'path/to/your/logo.png';
-                // logoElement.alt = 'Your Company Logo';
-            }
-
-            if (backButton) {
-                const backAction = backButton.getAttribute('data-back-action');
-                backButton.addEventListener('click', () => {
-                    eval(backAction); // Be cautious with eval, but suitable for this simple case
-                });
-            }
-
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const currentJsonFile = urlParams.get('json') || 'default_links.json'; // Default file if no query string
-
-            fetch(currentJsonFile)
-                .then(response => response.json())
-                .then(data => {
-                    let pathname = window.location.pathname;
-                    let filename = pathname.substring(pathname.lastIndexOf('/') +1);     
-                    if (data && Array.isArray(data)) {
-
-                        data.forEach((link, index) => {
-                            const linkElement = document.createElement('a');
-                            linkElement.setAttribute('data-app-link-item', '');
-                            linkElement.textContent = link.displayName;
-
-                            if (!link.url.startsWith("http")){       
-                            
-                                linkElement.href = `${filename}?json=${link.url}.json`;
-                            }
-                             else {
-                                // Second half of the links point to their original URLs
-                                linkElement.href = link.url;
-                            }
-                            contentElement.appendChild(linkElement);
-                        });
-                    } else {
-                        contentElement.textContent = 'Error loading links.';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error fetching JSON:', error);
-                    contentElement.textContent = 'Failed to load links.';
-                });
+         const titleElement = document.querySelector('[data-app-title]');
+         const headerTitleLink = document.querySelector('[data-title-link]');
+         const contentElement = document.querySelector('[data-app-content]');
+         const backButton = document.querySelector('[data-app-back-button]');
+         const logoElement = document.querySelector('[data-app-logo]');
+      
+      
+         if (titleElement && headerTitleLink) {
+          headerTitleLink.textContent = titleElement.getAttribute('data-app-title');
+          headerTitleLink.href = headerTitleLink.getAttribute('data-default-href');
+          document.title = headerTitleLink.textContent;
+         }
+      
+         if (logoElement) {
+          // You might want to dynamically set the logo source here if needed
+          // logoElement.src = 'path/to/your/logo.png';
+          // logoElement.alt = 'Your Company Logo';
+         }
+      
+         if (backButton) {
+    console.log('Back button element found.');
+    backButton.addEventListener('click', () => {
+        console.log('Back button clicked.');
+        window.history.back();
+        console.log('history.back() called.');
+    });
+} else {
+    console.log('Back button element NOT found.');
+}
+      
+         const queryString = window.location.search;
+         const urlParams = new URLSearchParams(queryString);
+         const currentJsonFile = urlParams.get('json') || 'default_links.json'; // Default file if no query string
+      
+         fetch(currentJsonFile)
+          .then(response => response.json())
+          .then(data => {
+      
+           if (data && Array.isArray(data)) {
+      
+            data.forEach((link, index) => {
+             const linkElement = document.createElement('a');
+             linkElement.setAttribute('data-app-link-item', '');
+             linkElement.textContent = link.displayName;
+      
+             if (!link.url.startsWith("http")){
+      
+      
+              // Get the current URL
+              const currentUrl = new URL(window.location.href);
+      
+              if (!currentUrl.searchParams.has("json")) {
+               currentUrl.searchParams.set("json", link.url); // Set a default value
+              } else {
+               currentUrl.searchParams.set("json", link.url); // Update existing value
+              }
+              linkElement.href = currentUrl;
+             }
+             else {
+              // Second half of the links point to their original URLs
+              linkElement.href = link.url;
+             }
+             contentElement.appendChild(linkElement);
+            });
+           } else {
+            contentElement.textContent = 'Error loading links.';
+           }
+          })
+          .catch(error => {
+           console.error('Error fetching JSON:', error);
+           contentElement.textContent = 'Failed to load links.';
+          });
         });
-    </script>
+       </script>
 </body>
 </html>
