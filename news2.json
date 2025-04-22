@@ -1,0 +1,50 @@
+
+[
+    {"url":"http://www.mediaresearch.org/","displayName":"MRC CyberAlert"},
+    {"url":"http://uunet.io/magazines.html","displayName":"LEFT SITES"},
+    
+    {"url":"http://www.lucianne.com/","displayName":"Lucianne"},
+    
+    {"url":"http://freebeacon.com/","displayName":"Free Beacon"},
+    {"url":"http://pajamasmedia.com/?src=network","displayName":"PajamasMedia"},
+    {"url":"http://www.breitbart.com/","displayName":"Breibart"},
+    {"url":"https://www.tvinsider.com/","displayName":"TVInsider"},
+    {"url":"https://www.tvfanatic.com/","displayName":"TVFanatic"},
+    {"url":"https://www.spoilertv.com/","displayName":"SpoilerAlert TV"},
+    
+    {"url":"https://www.whatfinger.com/home2/","displayName":"Whatfinger"},
+    
+    {"url":"http://www.freerepublic.com/tag/news-forum/index","displayName":"Free Republic"},
+    {"url":"https://thelibertydaily.com/","displayName":"Liberty Daily"},
+    {"url":"https://www.citizenfreepress.com/","displayName":"Citizen FreePress"},
+    {"url":"https://www.fortune.com/","displayName":"Fortune"},
+    
+    {"url":"https://protrumpnews.com/","displayName":"ProTrump News"},
+    {"url":"https://rantingly.com/","displayName":"Rantingly"},
+    
+    {"url":"https://www.memeorandum.com/","displayName":"Memeorandum"},
+    
+    {"url":"https://www.axios.com/","displayName":"Axios"},
+    
+    {"url":"http://www.noticierodigital.com/","displayName":"NoticieroDigital"},
+    
+    {"url":"http://www.bloomberg.com/","displayName":"Bloomberg Commodities"},
+    {"url":"http://money.cnn.com/data/commodities/","displayName":"CNN Commodities"},
+    
+    {"url":"http://www.cnn.com","displayName":"CNN frontpage"},
+    {"url":"http://news.ft.com/home/us/","displayName":"Fin.Times"},
+    {"url":"http://www.investors.com/","displayName":"Inv.Bus.Daily"},
+    {"url":"http://www.upi.com/","displayName":"UPI"},
+    {"url":"http://www.reuters.com/","displayName":"Reuters"},
+    {"url":"http://ap.tbo.com/ap/","displayName":"AP"},
+    {"url":"http://news.bbc.co.uk/","displayName":"BBC"},
+    {"url":"http://abcnews.go.com/","displayName":"ABC"},
+    {"url":"http://www.cbsnews.com/","displayName":"CBS"},
+    {"url":"http://www.foxnews.com/","displayName":"FOX"},
+    {"url":"http://www.msnbc.com/","displayName":"NBC"},
+    {"url":"http://www.google.com/news","displayName":"GoogleNews"},
+    {"url":"http://mail.live.com","displayName":"Hotmail"},
+    {"url":"http://mail.yahoo.com/","displayName":"YahooMail"},
+    {"url":"http://www.onetime.com/","displayName":"Air Reservations"},
+    {"url":"http://www.travelzoo.com/","displayName":"TravelZoo"}
+    ]

@@ -1,7 +1,7 @@
 [
     {"displayName": "GOOGLE", "url": "https://google.com"},
     {"displayName": "NEWS", "url": "news.json"},
-    {"displayName": "Link 3 (Goes to another JSON)", "url": "another_links_2.json"},
-    {"displayName": "Link 4", "url": "https://example.com/4"},
+    {"displayName": "NEWS2", "url": "news2.json"},
+    {"displayName": "PROTOTYPES", "url": "prototypes.json"},
     {"displayName": "Link 5", "url": "https://example.com/5"}
 ]
