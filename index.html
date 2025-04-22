@@ -24,7 +24,7 @@
         header {
             background-color: rgba(20, 20, 20, 0.9); /* Slightly transparent dark background */
             color: #00ffcc; /* Cyan accent color */
-            padding: 15px 25px;
+            padding: 15px 15px 15px 25px;
             position: fixed;
             top: 0;
             left: 0;
@@ -33,16 +33,20 @@
             display: flex;
             align-items: center;
             box-shadow: 0 2px 10px rgba(0, 255, 204, 0.2); /* Subtle cyan shadow */
+            justify-content: flex-start; /* Align items to the left */
+
         }
         [data-app-back-button] {
-            font-size: 1em;
-            padding: 10px 20px;
+            font-size: 0.7em; /* Slightly smaller font size */
+            padding: 5px 20px;
             border: 1px solid #00ffcc; /* Cyan border */
             background-color: transparent;
             color: #00ffcc;
             cursor: pointer;
             border-radius: 8px;
             transition: background-color 0.3s ease, color 0.3s ease;
+            margin-right: 55px; /* Add right margin to the button */
+
         }
         [data-app-back-button]:hover {
             background-color: #00ffcc;
@@ -51,14 +55,19 @@
 
         [data-app-header-title-container] {
             display: flex;
-            align-items: center;
-            /* flex-grow: 1; Remove this */
-            justify-content: center; /* Center content within the container */
-            width: 100%; /* Make it take the full width */
-            position: absolute; /* Position it absolutely within the header */
-            left: 0;
-            top: 0;
-            height: 100%; /* Make it span the full height of the header */
+    align-items: center;
+    /* justify-content: center; Remove this as Flexbox on header handles centering */
+    /* width: 100%; Remove this as Flexbox controls width distribution */
+    /* position: absolute; Remove this as Flexbox handles positioning */
+    /* left: 0; Remove this */
+    /* top: 0; Remove this */
+    /* height: 100%; Remove this */
+    margin: 0 auto 0 15x; /* Center the title horizontally */
+    margin-left: 15px; /* Add left margin to the title container */
+    margin-right: auto; /* Push to the right */
+    padding: 8px 20px; /* Reduced top and bottom padding */
+
+
         }
 
     [data-app-header-title] {
@@ -78,6 +87,11 @@
         margin-right: 15px; /* Adjust spacing as needed */
     }
 
+    [data-header-spacer] {
+    width: auto; /* Ensure it doesn't interfere with centering */
+    visibility: hidden; /* Hide the spacer if you were using it for spacing */
+}
+
     [data-app-content] {
             padding: 30px;
             display: flex; /* Enable horizontal layout */
@@ -85,9 +99,6 @@
             gap: 15px; /* Spacing between links */
         }
 
-        [data-header-spacer] {
-            width: auto; /* Ensure it doesn't interfere with centering */
-        }
 
 
         [data-app-link-item] {
@@ -214,13 +225,14 @@
 </head>
 <body>
     <header data-app-header>
-        <button type="button" data-app-back-button data-back-action="history.back()">Back</button>
         <div data-app-header-title-container style="display: flex; align-items: center;">
             <img data-app-logo src="favicon-96x96.png" alt="Logo" style="margin-right: 5px;">
             <h1 data-app-header-title style="margin: 0;">
                 <a data-title-link data-default-href="index.html"></a>
             </h1>
         </div>
+        <button type="button" data-app-back-button data-back-action="history.back()">BACK</button>
+
         <div data-header-spacer></div>
     </header>
 
@@ -235,7 +247,18 @@
          const backButton = document.querySelector('[data-app-back-button]');
          const logoElement = document.querySelector('[data-app-logo]');
       
-      
+         if (backButton) {
+            console.log('Back button element found.');
+                backButton.addEventListener('click', () => {
+                console.log('Back button clicked.');
+                window.history.back();
+                console.log('history.back() called.');
+            });
+        } else {
+            console.log('Back button element NOT found.');
+        }
+
+
          if (titleElement && headerTitleLink) {
           headerTitleLink.textContent = titleElement.getAttribute('data-app-title');
           headerTitleLink.href = headerTitleLink.getAttribute('data-default-href');
@@ -247,17 +270,6 @@
           // logoElement.src = 'path/to/your/logo.png';
           // logoElement.alt = 'Your Company Logo';
          }
-      
-         if (backButton) {
-    console.log('Back button element found.');
-    backButton.addEventListener('click', () => {
-        console.log('Back button clicked.');
-        window.history.back();
-        console.log('history.back() called.');
-    });
-} else {
-    console.log('Back button element NOT found.');
-}
       
          const queryString = window.location.search;
          const urlParams = new URLSearchParams(queryString);
