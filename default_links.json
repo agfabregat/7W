@@ -6,7 +6,14 @@
     {"displayName": "RadioTV", "url": "radioTV.json"},
     {"displayName": "Magazines", "url": "magazines.json"},
     {"displayName": "Blogs", "url": "blogs.json"},
-    {"displayName": "Magazines", "url": "magazines.json"}
+    {"displayName": "Chess", "url": "chess.json"},
+    {"displayName": "Facebook", "url": "facebook.json"},
+
+    {"displayName": "Twitter", "url": "twitter.json"},
+    {"displayName": "Space", "url": "space.json"},
+
+    {"displayName": "Facebook", "url": "facebook.json"},
+
 
 
 ]

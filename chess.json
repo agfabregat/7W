@@ -1,0 +1,11 @@
+[
+    {"url":"https://www.chess.com/daily-chess-puzzle","displayName":"Daily Chess"},
+	{"url":"https://www.365chess.com/analysis_board.php","displayName":"Analize Chessboard"},
+	
+    {"url":"https://chesspuzzle.net/Puzzle/","displayName":"ChessPuzzle"},
+    {"url":"https://zone.msn.com/gameplayer/gameplayerHTML.aspx?game=2048","displayName":"Game 2048 match tiles"},
+    {"url":"https://absolutist.com/online/fifteen/","displayName":"Arrange tiles to match picture"},
+    {"url":"https://absolutist.com/online/slidey-block-puzzle/","displayName":"Slidy Block"},
+    {"url":"https://slidingtiles.com/en/puzzle/play/art/25367-3x3-puzzle#3x3","displayName":"3x3 Puzzle"}
+  
+]
