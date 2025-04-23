@@ -15,8 +15,10 @@
 
     {"displayName": "Tools", "url": "tools.json"},
     {"displayName": "PCMagazines", "url": "pcMagazines.json"},
-    {"displayName": "Network", "url": "network.json"}
+    {"displayName": "Network", "url": "network.json"},
 
+    {"displayName": "Static", "url": "static.json"},
+    {"displayName": "Betting", "url": "betting.json"}
 
 
 

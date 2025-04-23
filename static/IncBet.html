@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <title>INCBET</title>
+    <style>
+        button {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 9pt;
+    outline: none;
+}
+
+button.orange:active {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.3);
+}button.orange {
+    color: white;
+    border: 1px solid #FB8F3D; 
+    background: -webkit-linear-gradient(top, #FDA251, #FB8F3D);
+    background: -moz-linear-gradient(top, #FDA251, #FB8F3D);
+    background: -ms-linear-gradient(top, #FDA251, #FB8F3D);
+}
+
+button.orange:hover {
+    border: 1px solid #EB5200;
+    background: -webkit-linear-gradient(top, #FD924C, #F9760B); 
+    background: -moz-linear-gradient(top, #FD924C, #F9760B); 
+    background: -ms-linear-gradient(top, #FD924C, #F9760B); 
+    box-shadow: 0 1px #EFEFEF;
+}
+
+    </style>
+  </head>
+
+  <body>     
+    <div class='content'>
+        <div>
+            <label for="aggInvestment">Aggregate Investment:</label>
+            <input type="number" id="aggInvestment" value="14.0">
+        </div>
+        <div>
+            <label for="initialProfit">Initial Profit:</label>
+            <input type="number" id="initialProfit" value="4.00">
+        </div>
+        <div>
+            <label for="profitIncrement">Profit Increment:</label>
+            <input type="number" id="profitIncrement" value="1.00">
+        </div>
+        <div>
+            <label for="currentOdds">Current Odds:</label>
+            <input type="number" id="currentOdds" value="1.80">
+        </div>
+        <div>
+
+            <button id="orange" class="orange">Run Model!</button>
+        </div>
+    </div>  
+
+
+
+    <script>
+        function betContext(_aggInvestment, _initialProfit, _profitIncrementByStep){
+            this.aggInvestment = _aggInvestment;
+            this.initialProfit = _initialProfit;
+            this.profitIncrementByStep = _profitIncrementByStep;
+            this.targetPayoff = 0.0;
+            this.currBet = 0.0;
+            this.currBetRounded = 0.0;
+            this.neededProfit = 0.0;
+            this.potProfit  = 0.0;
+        }
+
+        function nextBet(bc, currOdds, profitIncrement)
+        {
+            bc.neededProfit = bc.aggInvestment + bc.initialProfit + profitIncrement;			
+            bc.currBet = bc.neededProfit / (currOdds - 1.0);
+            bc.currBetRounded = Math.round(bc.currBet);
+            bc.targetPayoff = bc.currBetRounded * currOdds;
+            bc.potProfit= bc.neededProfit - bc.aggInvestment;
+            bc.aggInvestment = bc.aggInvestment+bc.currBetRounded;
+        }
+
+        window.onload = function(){ 
+            const aggInvestmentElem = document.getElementById("aggInvestment");
+            const initialProfitElem = document.getElementById("initialProfit");
+            const profitIncrementElem = document.getElementById("profitIncrement");
+            const currentOddsElem = document.getElementById("currentOdds");
+            const runModel = document.getElementById("orange");
+            
+            runModel.addEventListener("click", function () {
+                let aggInvestmentStr = aggInvestmentElem.value;
+                let initialProfitStr = initialProfitElem.value;
+                let profitIncrementStr = profitIncrementElem.value;
+                let currentOddsStr = currentOddsElem.value;
+                let aggInvestmentF = parseFloat(aggInvestmentStr) || 0;
+                let initialProfitF = parseFloat(initialProfitStr) || 0;
+                let profitIncrementF = parseFloat(profitIncrementStr) || 0;
+                let currentOddsF = parseFloat(currentOddsStr) || 0;
+
+                let bctx = new betContext(aggInvestmentF, initialProfitF, profitIncrementF);
+                nextBet(bctx, currentOddsF, profitIncrementF);
+
+                //document.getElementById("content").innerHTML += 
+                //"<h3>This is the text which has been inserted by JS</h3>";
+                }
+            )
+        }
+    </script>
+
+  </body>
+</html>

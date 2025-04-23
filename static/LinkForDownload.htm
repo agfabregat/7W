@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+<title>Download</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">      
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
+#container{
+  font-size:32px;
+}
+</style>
+</head>
+<body>
+<label>Enter http to download:</label>
+        <input type="text" id="linkin" placeholder="http://whatever/whatever.mp3">
+        <br><br>
+<div>
+	<a id="linkout" href="" onclick="myFunction();">Download</a>
+</div>
+<script>
+function myFunction() {
+	var lo = document.getElementById("linkout");
+    var li = document.getElementById("linkin");
+    lo.setAttribute("href", li.value);
+}
+
+</script>
+</body>
+</html>

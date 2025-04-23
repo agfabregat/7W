@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-app-title="7WINDS"></title>
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="shortcut icon" href="favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <style data-app-style>
         body {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             margin: 0;
-            padding-top: 70px; /* Adjust for header height */
-            background-color: #121212; /* Dark mode base */
-            color: #f5f5f5; /* Light text on dark */
+            padding-top: 70px;
+            /* Adjust for header height */
+            background-color: #121212;
+            /* Dark mode base */
+            color: #f5f5f5;
+            /* Light text on dark */
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         header {
-            background-color: rgba(20, 20, 20, 1); /* Slightly transparent dark background */
-            color: #00ffcc; /* Cyan accent color */
+            background-color: rgba(20, 20, 20, 1);
+            /* Slightly transparent dark background */
+            color: #00ffcc;
+            /* Cyan accent color */
             padding: 15px 15px 15px 25px;
             position: fixed;
             top: 0;
@@ -32,22 +38,29 @@
             z-index: 100;
             display: flex;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 255, 204, 0.2); /* Subtle cyan shadow */
-            justify-content: flex-start; /* Align items to the left */
+            box-shadow: 0 2px 10px rgba(0, 255, 204, 0.2);
+            /* Subtle cyan shadow */
+            justify-content: flex-start;
+            /* Align items to the left */
 
         }
+
         [data-app-back-button] {
-            font-size: 0.7em; /* Slightly smaller font size */
+            font-size: 0.7em;
+            /* Slightly smaller font size */
             padding: 5px 20px;
-            border: 1px solid #00ffcc; /* Cyan border */
+            border: 1px solid #00ffcc;
+            /* Cyan border */
             background-color: transparent;
             color: #00ffcc;
             cursor: pointer;
             border-radius: 8px;
             transition: background-color 0.3s ease, color 0.3s ease;
-            margin-right: 55px; /* Add right margin to the button */
+            margin-right: 55px;
+            /* Add right margin to the button */
 
         }
+
         [data-app-back-button]:hover {
             background-color: #00ffcc;
             color: #121212;
@@ -55,48 +68,62 @@
 
         [data-app-header-title-container] {
             display: flex;
-    align-items: center;
-    /* justify-content: center; Remove this as Flexbox on header handles centering */
-    /* width: 100%; Remove this as Flexbox controls width distribution */
-    /* position: absolute; Remove this as Flexbox handles positioning */
-    /* left: 0; Remove this */
-    /* top: 0; Remove this */
-    /* height: 100%; Remove this */
-    margin: 0 auto 0 15x; /* Center the title horizontally */
-    margin-left: 15px; /* Add left margin to the title container */
-    margin-right: auto; /* Push to the right */
-    padding: 8px 20px; /* Reduced top and bottom padding */
+            align-items: center;
+            /* justify-content: center; Remove this as Flexbox on header handles centering */
+            /* width: 100%; Remove this as Flexbox controls width distribution */
+            /* position: absolute; Remove this as Flexbox handles positioning */
+            /* left: 0; Remove this */
+            /* top: 0; Remove this */
+            /* height: 100%; Remove this */
+            margin: 0 auto 0 15x;
+            /* Center the title horizontally */
+            margin-left: 15px;
+            /* Add left margin to the title container */
+            margin-right: auto;
+            /* Push to the right */
+            padding: 8px 20px;
+            /* Reduced top and bottom padding */
 
 
         }
 
-    [data-app-header-title] {
-        /*font-size: 1.6em;*/
-        text-align: left; /* Align the title text to the left within its container */
-        margin: 0; /* Ensure no extra margins */
-        font-weight: 600; /* Semi-bold */
-    }
+        [data-app-header-title] {
+            /*font-size: 1.6em;*/
+            text-align: left;
+            /* Align the title text to the left within its container */
+            margin: 0;
+            /* Ensure no extra margins */
+            font-weight: 600;
+            /* Semi-bold */
+        }
 
-    [data-app-header-title] a {
-        text-decoration: none;
-        color: inherit;
-    }
+        [data-app-header-title] a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    [data-app-logo] {
-        height: 30px; /* Adjust as needed */
-        margin-right: 15px; /* Adjust spacing as needed */
-    }
+        [data-app-logo] {
+            height: 30px;
+            /* Adjust as needed */
+            margin-right: 15px;
+            /* Adjust spacing as needed */
+        }
 
-    [data-header-spacer] {
-    width: auto; /* Ensure it doesn't interfere with centering */
-    visibility: hidden; /* Hide the spacer if you were using it for spacing */
-}
+        [data-header-spacer] {
+            width: auto;
+            /* Ensure it doesn't interfere with centering */
+            visibility: hidden;
+            /* Hide the spacer if you were using it for spacing */
+        }
 
-    [data-app-content] {
+        [data-app-content] {
             padding: 30px;
-            display: flex; /* Enable horizontal layout */
-            flex-wrap: wrap; /* Allow links to wrap to the next line on smaller screens */
-            gap: 15px; /* Spacing between links */
+            display: flex;
+            /* Enable horizontal layout */
+            flex-wrap: wrap;
+            /* Allow links to wrap to the next line on smaller screens */
+            gap: 15px;
+            /* Spacing between links */
         }
 
 
@@ -104,26 +131,31 @@
         [data-app-link-item] {
             background-color: #222;
             border: 1px solid #333;
-           
+
             padding: 12px 20px;
             border-radius: 8px;
 
             text-decoration: none;
             color: #eee;
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-            flex-grow: 1; /* Distribute available space equally */
-            min-width: 180px; /* Optional: Set a minimum width for each link */
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            flex-grow: 1;
+            /* Distribute available space equally */
+            min-width: 180px;
+            /* Optional: Set a minimum width for each link */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            /* Subtle shadow */
         }
 
         [data-app-link-item]:hover {
             background-color: #333;
-            color:#f5f5f5;
-            transform: translateY(-2px); /* Subtle lift on hover */
+            color: #f5f5f5;
+            transform: translateY(-2px);
+            /* Subtle lift on hover */
 
         }
-/* Responsive adjustments */
-@media (max-width: 768px) {
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
             body {
                 font-size: 0.9em;
                 padding-top: 60px;
@@ -145,11 +177,13 @@
             [data-app-content] {
                 padding: 20px;
                 gap: 10px;
-                justify-content: flex-start; /* Keep start alignment for smaller tablets */
+                justify-content: flex-start;
+                /* Keep start alignment for smaller tablets */
             }
 
             [data-app-link-item] {
-                min-width: 150px; /* Adjust minimum width for tablets */
+                min-width: 150px;
+                /* Adjust minimum width for tablets */
             }
         }
 
@@ -174,16 +208,20 @@
 
             [data-app-content] {
                 padding: 15px;
-                flex-direction: column; /* Switch to vertical layout for smaller screens */
+                flex-direction: column;
+                /* Switch to vertical layout for smaller screens */
                 gap: 8px;
-                align-items: center; /* Center the items horizontally */
+                align-items: center;
+                /* Center the items horizontally */
             }
 
             [data-app-link-item] {
-                width: 90%; /* Reduce the width to have left and right margins */
+                width: 90%;
+                /* Reduce the width to have left and right margins */
                 min-width: auto;
                 padding: 10px 15px;
-                box-sizing: border-box; /* Ensure padding doesn't increase the width beyond 90% */
+                box-sizing: border-box;
+                /* Ensure padding doesn't increase the width beyond 90% */
             }
         }
 
@@ -210,19 +248,23 @@
                 padding: 10px;
                 flex-direction: column;
                 gap: 6px;
-                align-items: center; /* Center the items horizontally */
+                align-items: center;
+                /* Center the items horizontally */
             }
 
             [data-app-link-item] {
-                width: 90%; /* Maintain the 90% width for consistency */
+                width: 90%;
+                /* Maintain the 90% width for consistency */
                 min-width: auto;
                 padding: 8px 12px;
-                box-sizing: border-box; /* Ensure padding doesn't affect the 90% width */
+                box-sizing: border-box;
+                /* Ensure padding doesn't affect the 90% width */
             }
         }
     </style>
 
 </head>
+
 <body>
     <header data-app-header>
         <div data-app-header-title-container style="display: flex; align-items: center;">
@@ -240,80 +282,81 @@
     </div>
 
     <script data-app-script>
-        document.addEventListener('DOMContentLoaded', function() {
-         const titleElement = document.querySelector('[data-app-title]');
-         const headerTitleLink = document.querySelector('[data-title-link]');
-         const contentElement = document.querySelector('[data-app-content]');
-         const backButton = document.querySelector('[data-app-back-button]');
-         const logoElement = document.querySelector('[data-app-logo]');
-      
-         if (backButton) {
-            console.log('Back button element found.');
+        document.addEventListener('DOMContentLoaded', function () {
+            const titleElement = document.querySelector('[data-app-title]');
+            const headerTitleLink = document.querySelector('[data-title-link]');
+            const contentElement = document.querySelector('[data-app-content]');
+            const backButton = document.querySelector('[data-app-back-button]');
+            const logoElement = document.querySelector('[data-app-logo]');
+
+            if (backButton) {
+                console.log('Back button element found.');
                 backButton.addEventListener('click', () => {
-                console.log('Back button clicked.');
-                window.history.back();
-                console.log('history.back() called.');
-            });
-        } else {
-            console.log('Back button element NOT found.');
-        }
+                    console.log('Back button clicked.');
+                    window.history.back();
+                    console.log('history.back() called.');
+                });
+            } else {
+                console.log('Back button element NOT found.');
+            }
 
 
-         if (titleElement && headerTitleLink) {
-          headerTitleLink.textContent = titleElement.getAttribute('data-app-title');
-          headerTitleLink.href = headerTitleLink.getAttribute('data-default-href');
-          document.title = headerTitleLink.textContent;
-         }
-      
-         if (logoElement) {
-          // You might want to dynamically set the logo source here if needed
-          // logoElement.src = 'path/to/your/logo.png';
-          // logoElement.alt = 'Your Company Logo';
-         }
-      
-         const queryString = window.location.search;
-         const urlParams = new URLSearchParams(queryString);
-         const currentJsonFile = urlParams.get('json') || 'default_links.json'; // Default file if no query string
-      
-         fetch(currentJsonFile)
-          .then(response => response.json())
-          .then(data => {
-      
-           if (data && Array.isArray(data)) {
-      
-            data.forEach((link, index) => {
-             const linkElement = document.createElement('a');
-             linkElement.setAttribute('data-app-link-item', '');
-             linkElement.textContent = link.displayName;
-      
-             if (!link.url.startsWith("http")){
-      
-      
-              // Get the current URL
-              const currentUrl = new URL(window.location.href);
-      
-              if (!currentUrl.searchParams.has("json")) {
-               currentUrl.searchParams.set("json", link.url); // Set a default value
-              } else {
-               currentUrl.searchParams.set("json", link.url); // Update existing value
-              }
-              linkElement.href = currentUrl;
-             }
-             else {
-              // Second half of the links point to their original URLs
-              linkElement.href = link.url;
-             }
-             contentElement.appendChild(linkElement);
-            });
-           } else {
-            contentElement.textContent = 'Error loading links.';
-           }
-          })
-          .catch(error => {
-           console.error('Error fetching JSON:', error);
-           contentElement.textContent = 'Failed to load links.';
-          });
+            if (titleElement && headerTitleLink) {
+                headerTitleLink.textContent = titleElement.getAttribute('data-app-title');
+                headerTitleLink.href = headerTitleLink.getAttribute('data-default-href');
+                document.title = headerTitleLink.textContent;
+            }
+
+            if (logoElement) {
+                // You might want to dynamically set the logo source here if needed
+                // logoElement.src = 'path/to/your/logo.png';
+                // logoElement.alt = 'Your Company Logo';
+            }
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const currentJsonFile = urlParams.get('json') || 'default_links.json'; // Default file if no query string
+
+            fetch(currentJsonFile)
+                .then(response => response.json())
+                .then(data => {
+
+                    if (data && Array.isArray(data)) {
+
+                        data.forEach((link, index) => {
+                            const linkElement = document.createElement('a');
+                            linkElement.setAttribute('data-app-link-item', '');
+                            linkElement.textContent = link.displayName;
+
+                            if (!link.url.startsWith("http")) {
+
+
+                                // Get the current URL
+                                const currentUrl = new URL(window.location.href);
+
+                                if (!currentUrl.searchParams.has("json")) {
+                                    currentUrl.searchParams.set("json", link.url); // Set a default value
+                                } else {
+                                    currentUrl.searchParams.set("json", link.url); // Update existing value
+                                }
+                                linkElement.href = currentUrl;
+                            }
+                            else {
+                                // Second half of the links point to their original URLs
+                                linkElement.href = link.url;
+                            }
+                            contentElement.appendChild(linkElement);
+                        });
+                    } else {
+                        contentElement.textContent = 'Error loading links.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching JSON:', error);
+                    contentElement.textContent = 'Failed to load links.';
+                });
         });
-       </script>
+    </script>
 </body>
+
 </html>

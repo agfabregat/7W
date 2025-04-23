@@ -1,0 +1,28 @@
+[
+    {"url":"./static/arbCalculator.html","displayName":"Arb"},
+    {"url":"./static/arbCalculatorT.html","displayName":"ArbT"},
+    
+    {"url":"./static/EncryptStellar/nacl.html","displayName":"Nacl"},
+    {"url":"./static/EncryptStellar/nacl2.html","displayName":"Nacl2"},
+    {"url":"./static/EncryptStellar/nacl-messageEncyption.html","displayName":"NaclMssgEncrypt"},
+    {"url":"./static/EncryptStellar/nacl-pkMsgEncryption.html","displayName":"pkNaclMssgEncrypt"},
+    {"url":"./static/EncryptStellar/stellar.html","displayName":"Stellar"},
+    {"url":"./static/ai.html","displayName":"AI"},
+    {"url":"./static/encryptAES.html","displayName":"EncryptAES"},
+    {"url":"./static/fonts.html","displayName":"Fonts"},
+    {"url":"./static/sticky.html","displayName":"Sticky"},
+    {"url":"./static/Nitrogen.html","displayName":"Nitrogen"},
+    {"url":"./static/bovada.html","displayName":"Bovada"},
+    {"url":"./static/binance.html","displayName":"Binance"},
+    {"url":"http://oddsapi.azurewebsites.net/odds.html","displayName":"Odds"},
+    {"url":"http://zjx.azurewebsites.net/zjx.html","displayName":"ZJX"},
+    {"url":"./static/agatefont.html","displayName":"AgateFont"},
+    {"url":"./static/MobileScreen.html","displayName":"Mobile Screen"},
+    {"url":"./static/deviceDetector.html","displayName":"DeviceDetector"},
+    {"url":"./static/ScreenWidths.html","displayName":"ScreenWidths"},
+    {"url":"./static/lineOriginators.html","displayName":"Line Originators"},
+    {"url":"./static/LinkForDownload.htm","displayName":"LinkForDownload"},
+    {"url":"./static/Mailer.html","displayName":"Mailer"},
+    {"url":"./static/STICKYHEADERSFOOTERS.html","displayName":"StickyHeadersFooters"}
+    
+    ]

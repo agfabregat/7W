@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+<title>MAIL</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">      
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
+#container{
+  font-size:32px;
+}
+</style>
+</head>
+<body>
+<label>AKEY:</label>
+        <input type="text" id="akey" placeholder="http://whatever/whatever.mp3">
+        <br><br>
+<div>
+	<a id="linkout" href="" onclick="mail();">SEND MAIL 3</a>
+</div>
+<script>
+
+// Example POST method implementation:
+
+
+let pdata = {  
+   "sender":{  
+      "name":"Sender Alex",
+      "email":"senderalex@example.com"
+   },
+   "to":[  
+      {  
+         "email":"18034468830@tmomail.net",
+         "name":"John Doe"
+      }
+   ],
+   "subject":"Hello world",
+   "htmlContent":"<html><head></head><body><p>Hello,</p>This is my first transactional email sent from Sendinblue.</p></body></html>"
+};
+
+
+function sendMail(key){
+let response = fetch('https://smtp-relay.sendinblue.com:587', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8',
+	'api-key': key
+  },
+  body: JSON.stringify(pData)
+});
+};
+
+function mail(){
+var k = document.getElementById("akey").value;
+let result = sendMail(k);
+alert(result.message);
+};
+
+
+
+</script>
+</body>
+</html>

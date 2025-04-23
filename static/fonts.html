@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+<title>5FONT</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">      
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
+
+body {  
+	font-family: Verdana, Arial, Tahoma, Serif;
+	font-size: 1rem;
+	margin: 0.5vw;
+	padding: 0;
+}
+
+	
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+
+  align-items: stretch; /* will apply equal heights to flex items */
+  height: 100%;
+}
+
+.mrow{
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  /* flex-basis: 100%;  flex-basis overrides the equal heights*/
+  line-height:1.0;
+  
+}
+.irow{
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  /* flex-basis: 100%;  flex-basis overrides the equal heights*/
+  line-height:1.0;
+}
+
+.rem075 {
+ font-size:0.75rem
+ }
+ .rem100 {
+ font-size:1.00rem
+ }
+ .rem150 {
+ font-size:1.50rem
+ }
+ .rem200 {
+ font-size:2.00rem
+ }
+
+.minmax075{
+	font-size: clamp(0.75rem, calc(0.75rem + .75vw), 1.25rem);
+}
+.minmax100{
+	font-size: clamp(1rem, calc(1rem + .75vw), 1.5rem );
+}
+.minmax150{
+	font-size: clamp(1.25rem, calc(1.25rem + .75vw), 1.75rem) ;
+}
+.minmax200{
+	font-size: clamp(1.5rem, calc(1.5rem + .75vw), 2.25rem);
+}
+
+</style>
+</head>
+<body>
+<div class="mrow">
+<div class="column rem075" style="flex:1;">C1 Fixed 0.75rem</div>
+<div class="column rem100" style="flex:1;">C2 Fixed 1.00rem</div>
+<div class="column rem150" style="flex:1;">C3 Fixed 1.50rem</div>
+<div class="column rem200" style="flex:1;">C4 Fixed 2.00rem</div>
+</div>
+
+<div class="mrow">
+<div class="column minmax075" style="flex:1;">C1 0.75</div>
+<div class="column minmax100" style="flex:1;">C2 1.00</div>
+<div class="column minmax150" style="flex:1;">C3 1.25</div>
+<div class="column minmax200" style="flex:1;">C4 1.5</div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

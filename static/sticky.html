@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  
+<title>5STICKY</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">      
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<!--<link id="theme" rel="stylesheet" href="light.css" type="text/css">
+-->
+<style>
+:root {
+    --primary-bk-color: #fff;
+    --secondary-bk-color: #536390;
+    --primary-font-color: #000;
+    --secondary-font-color: #fff;
+    
+	--white-sun:&#x263C;
+	--dark-sun:&#9728;
+	--quarter-moon:&#9790;
+	
+}
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 300;    
+	margin:0;
+	/* overflow: hidden;  Hide scrollbars */
+}
+
+#head {
+
+/* needed for sticky */
+    position: sticky;
+    top: 0; 
+	z-index: 99;
+/*-------------------*/
+	
+    text-align: center;
+    font-size: clamp(1.1rem, 2.5vw, 2.2rem);
+    margin-bottom:1px;
+}
+
+#content{
+    line-height:2rem;	
+	font-size: clamp(1rem, 1rem + 1vw, 1.3rem);
+}
+
+.rowh0 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+    align-items: stretch;
+	margin-bottom: 1x;
+}
+
+.rowh1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+    align-items: stretch;
+	margin-bottom: 1px;
+}
+
+.cellh0 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    font-size: clamp(1.2rem, 1.2rem + 1vw, 2.2rem);
+}
+.cellh1 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+	font-size: clamp(1rem, 1rem + 1vw, 2.2rem);
+}
+
+#theme{
+	font-size:1.5rem;
+	line-height:1.5rem;
+    cursor: pointer;
+	border-style: solid; 
+	border-width: .1rem;
+	border-color:red;
+}
+</style>
+
+</head>
+<body>
+	<div id="style"></div>
+      <div id="head">
+         <div class="rowh0">
+            <div class="cellh0">111</div>
+            <div class="cellh0">1EQUALS1</div>
+            <div class="cellh0">222</div>
+         </div>
+         <div class="rowh1">
+            <div class="cellh1">333</div>
+            <div class="cellh1">1EQUALS1</div>
+            <div class="cellh1"><div id="theme" onclick="T()">XXX</div></div>
+         </div>
+      </div>
+      <div id="content">
+	  
+	  
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  <div class="tOddRow">6yyyyy</div>
+	  <div class="tEvenRow">zzzzzz</div>
+	  
+	  </div>
+	    
+<script>
+	let t = 0;
+	let tarr = ['&#9788;', '&#9728;'];
+	let styles = ["<style> body {color:white; background:white;} #head {color:white; background:black;}.rowh0 {background:gray;} .rowh1 {background:lightgray;} .tOddRow { background:#474747; } .tEvenRow { background:#595959; }</style>",
+	"<style> body {color:black; background:white;} #head {color:black; background:black;} .rowh0 {background:silver;} .rowh1 {background:lightgray;}   .tOddRow {background:#f5f5f5; } .tEvenRow {background: #ededed; }</style>"];
+	
+	let style;
+	let theme;	
+	document.addEventListener("DOMContentLoaded", function(){
+		style = document.getElementById('style');
+		theme = document.getElementById('theme');
+		style.innerHTML=tarr[t];
+		T(t);
+	});
+</script>
+
+<script>
+	function changeStyle(styleIdx){
+	  style.innerHTML = styles[styleIdx];
+}
+</script>
+	  
+<script>
+	function T(){
+		 t++;
+		 t = t>1?0:1;
+		 theme.innerHTML=tarr[t];
+		 changeStyle(t);
+ }
+</script>
+</body>
+</html>
