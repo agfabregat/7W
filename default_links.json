@@ -10,9 +10,13 @@
     {"displayName": "Facebook", "url": "facebook.json"},
 
     {"displayName": "Twitter", "url": "twitter.json"},
+
     {"displayName": "Space", "url": "space.json"},
 
-    {"displayName": "Facebook", "url": "facebook.json"}
+    {"displayName": "Tools", "url": "tools.json"},
+    {"displayName": "PCMagazines", "url": "pcMagazines.json"},
+    {"displayName": "Network", "url": "network.json"}
+
 
 
 

@@ -1,0 +1,20 @@
+[
+    {"url":"http://www.pcmag.com/","displayName":"PC Magazine"},
+    {"url":"http://www.pcworld.com/","displayName":"PCWorld"},
+    {"url":"http://www.zdnet.com/","displayName":"ZDnet"},
+    {"url":"http://www.internet.com/","displayName":"Internet"},
+    {"url":"http://www.ecommercetimes.com/","displayName":"eCommerceTimes"},
+    {"url":"https://www.fortune.com/","displayName":"Fortune"},
+    {"url":"https://www.informationweek.com/","displayName":"InformationWeek"},
+    {"url":"https://www.codemag.com/Magazine/ByCategory/JSON","displayName":"JSON"},
+    {"url":"http://msdn.microsoft.com/msdnmag/","displayName":"MSDN"},
+    {"url":"http://www.sdmagazine.com/","displayName":"SoftwareDev "},
+    {"url":"https://www.sqlservergeeks.com/the-scripts-garage/","displayName":"SQL Scripts"},
+    {"url":"https://visualstudiomagazine.com/articles/list/c.aspx","displayName":"C# Mag"},
+    {"url":"https://visualstudiomagazine.com/Articles/List/Visual-Basic.aspx","displayName":"VB WebMag"},
+    {"url":"https://visualstudiomagazine.com/home.aspx","displayName":"VisualStudioMag "},
+    {"url":"http://www.infoworld.com/","displayName":"InfoWorld"},
+    {"url":"http://www.webtechniques.com/","displayName":"NewArchitect"},
+    {"url":"https://ravendb.net/learn","displayName":"RavenDb"},
+    {"url":"http://www.sqlmag.com/","displayName":"ITPro Magazine"}
+    ]
