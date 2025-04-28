@@ -316,7 +316,6 @@
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const currentJsonFile = urlParams.get('json') || 'default_links.json'; // Default file if no query string
-
             fetch(currentJsonFile)
                 .then(response => response.json())
                 .then(data => {
@@ -327,9 +326,8 @@
                             const linkElement = document.createElement('a');
                             linkElement.setAttribute('data-app-link-item', '');
                             linkElement.textContent = link.displayName;
-
+                            
                             if (!link.url.startsWith("http")) {
-
 
                                 // Get the current URL
                                 const currentUrl = new URL(window.location.href);
@@ -339,11 +337,12 @@
                                 } else {
                                     currentUrl.searchParams.set("json", link.url); // Update existing value
                                 }
+
                                 linkElement.href = currentUrl;
                             }
                             else {
-                                // Second half of the links point to their original URLs
-                                linkElement.href = link.url;
+                                    linkElement.href = link.url;                               
+
                             }
                             contentElement.appendChild(linkElement);
                         });

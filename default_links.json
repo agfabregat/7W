@@ -1,5 +1,4 @@
 [
-    {"displayName": "GOOGLE", "url": "https://google.com"},
     {"displayName": "NEWS", "url": "news.json"},
     {"displayName": "NEWS2", "url": "news2.json"},
     {"displayName": "PROTOTYPES", "url": "prototypes.json"},

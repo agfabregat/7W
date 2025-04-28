@@ -1,9 +1,9 @@
 
 [
-    {"url":"https://speed.measurementlab.net/#/","displayName":"Speed Test by Measurement Lab"},
-    {"url":"https://browserleaks.com/ip","displayName":"Browserleaks"},
-    {"url":"https://www.dnsleaktest.com/","displayName":"DNS Leaktest 1"},
-    {"url":"https://dnsleak.com/","displayName":"DNS Leaktest 2"}
+    {"url":"https://speed.measurementlab.net/#/","title":"Speed Test by Measurement Lab"},
+    {"url":"https://browserleaks.com/ip","title":"Browserleaks"},
+    {"url":"https://www.dnsleaktest.com/","title":"DNS Leaktest 1"},
+    {"url":"https://dnsleak.com/","title":"DNS Leaktest 2"}
     
     
     
