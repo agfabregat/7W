@@ -3,328 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payables</title>
+    <title>PAYABLES</title>
     <style>
         body {
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        .header {
-            background-color: #eee;
-            padding: 15px 0;
+            font-family: Arial, sans-serif;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-
-        .header h1 {
-            margin: 0;
-            font-size: 1.2em;
-        }
-
-        .add-button-container {
-            padding: 10px;
+        h1 {
             text-align: center;
-            background-color: #f0f0f0;
-            border-bottom: 1px solid #ddd;
         }
-
-        .add-button {
-            background-color: #4CAF50;
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="number"], input[type="text"] {
+            width: 95%;
+            text-align: center;
+        }
+        .delete-btn {
+            cursor: pointer;
+            color: red;
+            border: none;
+            background: none;
+        }
+        .add-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: green;
             color: white;
             border: none;
-            padding: 10px 15px;
-            font-size: 0.9em;
-            border-radius: 5px;
             cursor: pointer;
         }
-
-        .container {
-            padding: 10px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background-color: #fff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow-x: auto; /* Enable horizontal scrolling */
-            display: grid; /* Use CSS Grid for column control */
-            grid-template-columns: 30px 40px 120px 60px 40px; /* Define column widths */
-        }
-
-        thead, tbody, tfoot, tr {
-            display: contents; /* Make thead, tbody, tfoot, tr not generate boxes */
-        }
-
-        th, td {
-            padding: 8px; /* Reduced padding */
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-            font-size: 0.9em;
-            white-space: nowrap; /* Prevent wrapping */
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        th {
-            background-color: #f0f0f0;
+        .grand-total {
+            margin-top: 10px;
             font-weight: bold;
         }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        .autopay-cell {
-            text-align: center;
-        }
-
-        .delete-cell {
-            text-align: center;
-        }
-
-        .delete-cell button {
-            padding: 2px 5px; /* Adjust delete button padding */
-            font-size: 0.8em;
-            line-height: 1;
-        }
-
-        .delete-cell span {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            line-height: 16px;
-            text-align: center;
-            color: #cc0000;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
-
-        .editable-cell input {
-            width: 100%; /* Make input fill the cell */
-            box-sizing: border-box; /* Include padding and border in the element's total width and height */
-            padding: 4px; /* Adjust input padding */
-            margin: 0; /* Remove default input margins */
-            font-size: 0.9em;
-        }
-
-        .grand-total-row {
-            font-weight: bold;
-            background-color: #e0f7fa;
-        }
-
-        .grand-total-row td {
-            border-top: 2px solid #ddd;
-            padding: 8px;
-        }
-
-        /* Adjust for smaller screens */
-        @media (max-width: 600px) {
-            table {
-                grid-template-columns: 30px 40px 100px 50px 40px; /* Adjust for smaller screens */
-            }
-
-            th, td, .editable-cell input, .add-button {
-                font-size: 0.8em;
-                padding: 6px;
-            }
-
-            .header h1 {
-                font-size: 1em;
-            }
-
-            .add-button {
-                padding: 8px 12px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            table {
-                grid-template-columns: 35px 45px 100px 40px 40px; /* Further adjust for very small screens */
-            }
-
-            th, td, .editable-cell input, .add-button {
-                font-size: 0.7em;
-                padding: 4px;
-            }
-        }
+            /* Hide spinner for number inputs */
+    input.no-spinner {
+        -moz-appearance: textfield;
+        appearance: textfield;
+    }
+    input.no-spinner::-webkit-inner-spin-button,
+    input.no-spinner::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Payables</h1>
-    </div>
 
-    <div class="add-button-container">
-        <button class="add-button" onclick="addPayable()">Add Payable</button>
-    </div>
+    <h1>PAYABLES</h1>
+    <table id="payablesTable">
+        <thead>
+            <tr>
+                <th style="width:15%">Due Date</th>
+                <th style="width:20%">Amount</th>
+                <th style="width:45%">Account</th>
+                <th style="width:10%">AutoPay</th>
+                <th style="width:10%">X</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 
-    <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Due Date</th>
-                    <th>Amount ($)</th>
-                    <th>Account</th>
-                    <th>Autopay</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="payables-table-body"></tbody>
-            <tfoot>
-                <tr class="grand-total-row">
-                    <td colspan="1">Grand Total:</td>
-                    <td id="grand-total-amount">$0</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tfoot>
-        </table>
-    </div>
+    <button class="add-btn" onclick="addRow()">ADD</button>
+    <p class="grand-total">Grand Total: $<span id="grandTotal">0</span></p>
 
     <script>
-        const LOCAL_STORAGE_KEY = 'payablesData';
-        const tableBody = document.getElementById('payables-table-body');
-        const grandTotalAmountCell = document.getElementById('grand-total-amount');
-        let payablesData = [];
+        const localStorageKey = "payablesData";
 
-        function loadPayables() {
-            const storedData = localStorage.getItem(LOCAL_STORAGE_KEY);
-            if (storedData) {
-                payablesData = JSON.parse(storedData);
-            }
-            renderPayables();
+        function loadData() {
+            const data = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+            updateTable(data);
         }
 
-        function savePayables() {
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(payablesData));
+        function saveData(data) {
+            localStorage.setItem(localStorageKey, JSON.stringify(data));
+            updateGrandTotal(data);
         }
 
-        function calculateGrandTotal() {
-            let total = payablesData.reduce((sum, payable) => {
-                let amount = parseFloat(payable.amount);
-                return sum + (isNaN(amount) ? 0 : amount);
-            }, 0);
-            grandTotalAmountCell.textContent = `$${total.toFixed(2)}`;
+        function enforceNumericInput(event) {
+        if (!/^\d*$/.test(event.target.value)) {
+            event.target.value = event.target.value.replace(/\D/g, '');
+        }
+    }
+
+    function updateTable(data) {
+        const tbody = document.querySelector("#payablesTable tbody");
+        tbody.innerHTML = "";
+        
+        data.forEach((item, index) => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td><input type="text" class="no-spinner" value="${item.dueDate}" oninput="enforceNumericInput(event); updateCell(${index}, 'dueDate', this.value)"></td>
+                <td><input type="text" class="no-spinner" value="${item.amount}" oninput="enforceNumericInput(event); updateCell(${index}, 'amount', this.value)"></td>
+                <td><input type="text" value="${item.account}" oninput="updateCell(${index}, 'account', this.value)"></td>
+                <td><input type="checkbox" ${item.autoPay ? "checked" : ""} onchange="updateCell(${index}, 'autoPay', this.checked)"></td>
+                <td><button class="delete-btn" onclick="deleteRow(${index})">X</button></td>
+            `;
+
+            tbody.appendChild(row);
+        });
+
+        updateGrandTotal(data);
+    }
+
+        
+
+        function updateCell(index, key, value) {
+            const data = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+            data[index][key] = key === "autoPay" ? value : (key === "amount" || key === "dueDate") ? parseInt(value) || 0 : value;
+            saveData(data);
         }
 
-        function renderPayables() {
-            tableBody.innerHTML = '';
-            payablesData.forEach((payable, index) => {
-                const row = tableBody.insertRow();
-
-                function createEditableCell(value, field, px) {
-                    const cell = row.insertCell();
-                    const input = document.createElement('input');
-                    input.type = 'text';
-                    input.value = value;
-                    //input.size = size;
-                    input.width = px;
-                    input.setAttribute('data-index', index);
-                    input.setAttribute('data-field', field);
-                    input.addEventListener('blur', updatePayable);
-
-                    if (field === 'amount') {
-                        input.addEventListener('input', calculateGrandTotal);
-                    }
-
-                    cell.appendChild(input);
-                }
-
-                createEditableCell(payable.dueDate, 'dueDate', '30px');
-                createEditableCell(payable.amount, 'amount', '45px');
-                createEditableCell(payable.account, 'account', '150px');
-
-                const autopayCell = row.insertCell();
-                const checkbox = document.createElement('input');
-                checkbox.type = 'checkbox';
-                checkbox.checked = payable.autopay;
-                checkbox.setAttribute('data-index', index);
-                checkbox.addEventListener('change', updateAutopay);
-                autopayCell.appendChild(checkbox);
-
-                const deleteCell = row.insertCell();
-                const deleteButton = document.createElement('button');
-                deleteButton.innerHTML = '<span>X</span>';
-                deleteButton.addEventListener('click', () => deleteRow(index));
-                deleteCell.appendChild(deleteButton);
-            });
-            calculateGrandTotal();
-        }
-
-        function addPayable() {
-            payablesData.push({ dueDate: "", amount: "", account: "", autopay: false });
-            savePayables();
-            renderPayables();
-
-            const newRow = tableBody.lastElementChild;
-            if (newRow) {
-                const firstInput = newRow.querySelector('input');
-                if (firstInput) {
-                    firstInput.focus();
-                }
-            }
+        function addRow() {
+            const data = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+            data.push({ dueDate: "", amount: 0, account: "", autoPay: false });
+            saveData(data);
+            updateTable(data);
         }
 
         function deleteRow(index) {
-            payablesData.splice(index, 1);
-            savePayables();
-            renderPayables();
+            const data = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+            data.splice(index, 1);
+            saveData(data);
+            updateTable(data);
         }
 
-        function updatePayable(event) {
-            const input = event.target;
-            const cell = input.parentNode; // Get the parent <td>
-            const index = parseInt(input.getAttribute('data-index'));
-            const field = input.getAttribute('data-field');
-            let value = input.value.trim();
-
-            if (field === 'amount') {
-                const numberValue = parseFloat(value);
-                if (isNaN(numberValue)) {
-                    input.value = payablesData[index][field];
-                    return;
-                }
-                value = numberValue;
-            }
-
-            if (index >= 0) {
-                payablesData[index][field] = value;
-                cell.classList.add('saving'); // Add saving class to the <td>
-                savePayables();
-                calculateGrandTotal();
-                setTimeout(() => {
-                    cell.classList.remove('saving'); // Remove after a delay
-                }, 500);
-            }
+        function updateGrandTotal(data) {
+            const total = data.reduce((sum, item) => sum + (item.amount || 0), 0);
+            document.getElementById("grandTotal").innerText = total;
         }
 
-        function updateAutopay(event) {
-            const checkbox = event.target;
-            const cell = checkbox.parentNode; // Get the parent <td>
-            const index = parseInt(checkbox.getAttribute('data-index'));
-            const value = checkbox.checked;
-
-            if (index >= 0) {
-                payablesData[index].autopay = value;
-                cell.classList.add('saving'); // Add saving class to the <td>
-                savePayables();
-                setTimeout(() => {
-                    cell.classList.remove('saving'); // Remove after a delay
-                }, 500);
-            }
-        }
-
-        loadPayables();
+        window.onload = loadData;
     </script>
+
 </body>
 </html>
