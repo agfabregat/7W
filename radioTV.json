@@ -2,20 +2,22 @@
 
     {"url":"https://thetvapp.to","displayName":"TheTVApp"},
     {"url":"https://tvpass.org/channels","displayName":"TvPass"},
+    {"url":"https://americasvoice.news/","displayName":"Real America's Voice"},
+    {"url":"https://usnewson.com/watch/","displayName":"NewsOn"},
+    {"url":"https://ufreetv.com/","displayName":"UFreeTV"},
     {"url":"https://www.livehdtv.com/","displayName":"LiveHDTV"},
     {"url":"https://tv.garden", "displayName":"TV Garden"},
 
     {"url":"https://livestreamlinks.net/en/onlinetv/united-states","displayName":"Livestream links"},
-    {"url":"https://ufreetv.com/","displayName":"UFreeTV"},
     {"url":"https://www.newslive.com/","displayName":"NewsLive"},
-    {"url":"https://usnewson.com/watch/","displayName":"NewsOn"},
+
     {"url":"https://streamfare.info/foxnews","displayName":"FoxNews TV Streamfare"},
     {"url":"https://www.freetubetv.net/watch/","displayName":"FreeTubeTV"},
     {"url":"https://www.livehdtv.com/","displayName":"LiveHDTV"},
     {"url":"https://www.livenowfox.com/live","displayName":"Fox NOW"},
     {"url":"http://tunein.com/","displayName":"Radio TuneIn"},
     {"url":"http://tunein.com/radio/Conservative-c57917/","displayName":"Conservative Talk"},
-    {"url":"https://americasvoice.news/","displayName":"Real America's Voice"},
+
     {"url":"https://www.rsbnetwork.com/","displayName":"RSBN"},
     {"url":"https://warroom.org/","displayName":"WarRoom Org"},
     {"url":"https://wrko.iheart.com/","displayName":"WRKO"},
@@ -46,6 +48,7 @@
     
     {"url":"http://atdhes.eu/","displayName":"Atdhes sports"},
 
+    {"url":"https://livesports808.rest/#watch","displayName":"LiveSports808"},
     {"url":"http://livetv.sx/enx/","displayName":"LiveTv (all live sports)"},
     {"url":"https://live.sport365.stream/tennis","displayName":"Sport365 Tennis"},
     
