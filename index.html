@@ -292,8 +292,8 @@
 
                     if (Array.isArray(node.children)) {
                         const details = document.createElement('details');
-                        // Categories start open; set "collapsed": true in the JSON to start closed
-                        details.open = node.collapsed !== true;
+                        // Categories start collapsed; set "open": true in the JSON to start expanded
+                        details.open = node.open === true;
 
                         const summary = document.createElement('summary');
                         summary.textContent = node.displayName;
