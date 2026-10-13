@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-app-title="7WINDS"></title>
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <style data-app-style>
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding-top: 70px;
+            background-color: #0e0f11;
+            color: #e8eaed;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        header {
+            background-color: rgba(14, 15, 17, 0.8);
+            -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid #23262b;
+            color: #00ffcc;
+            padding: 15px 15px 15px 25px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            box-sizing: border-box;
+        }
+
+        [data-app-back-button] {
+            font-size: 0.7em;
+            padding: 5px 20px;
+            border: 1px solid #00ffcc;
+            background-color: transparent;
+            color: #00ffcc;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-right: 55px;
+        }
+
+        [data-app-back-button]:hover {
+            background-color: #00ffcc;
+            color: #121212;
+        }
+
+        [data-app-header-title-container] {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+            margin-right: auto;
+            padding: 8px 20px;
+        }
+
+        [data-app-header-title] {
+            text-align: left;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        [data-app-header-title] a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        [data-app-logo] {
+            height: 30px;
+            margin-right: 15px;
+        }
+
+        [data-header-spacer] {
+            width: auto;
+            visibility: hidden;
+        }
+
+        /* ---------- Vertical hierarchical list ---------- */
+        [data-app-content] {
+            padding: 32px 24px 64px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        [data-app-content] ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Nested levels: indented with a guide line */
+        [data-app-content] ul ul {
+            margin: 2px 0 10px 14px;
+            padding-left: 14px;
+            border-left: 2px solid #1f2227;
+        }
+
+        /* Link rows: tall, full-width, easy to tap */
+        [data-app-link-item] {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 52px;
+            margin: 4px 0;
+            padding: 12px 18px;
+            box-sizing: border-box;
+            background-color: #17191d;
+            border: 1px solid #23262b;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #e8eaed;
+            font-size: 1.02em;
+            transition: background-color 0.15s ease, border-color 0.15s ease;
+        }
+
+        [data-app-link-item]::after {
+            content: "\203A";
+            color: #5b616b;
+            font-size: 1.4em;
+            line-height: 1;
+            transition: color 0.15s ease, transform 0.15s ease;
+        }
+
+        [data-app-link-item]:hover {
+            background-color: #1d2025;
+            border-color: rgba(0, 255, 204, 0.45);
+        }
+
+        [data-app-link-item]:hover::after {
+            color: #00ffcc;
+            transform: translateX(3px);
+        }
+
+        [data-app-link-item]:active {
+            background-color: #23272d;
+        }
+
+        /* Category headings (collapsible) */
+        details {
+            margin: 10px 0 4px;
+        }
+
+        summary {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 8px 6px;
+            box-sizing: border-box;
+            cursor: pointer;
+            list-style: none;
+            color: #00ffcc;
+            font-weight: 600;
+            font-size: 1.05em;
+            border-radius: 12px;
+            user-select: none;
+            transition: background-color 0.15s ease;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: "\25B8";
+            display: inline-block;
+            width: 1em;
+            font-size: 0.9em;
+            color: #00ffcc;
+            transition: transform 0.15s ease;
+        }
+
+        details[open]>summary::before {
+            transform: rotate(90deg);
+        }
+
+        summary:hover {
+            background-color: rgba(0, 255, 204, 0.07);
+        }
+
+        summary:focus-visible,
+        [data-app-link-item]:focus-visible {
+            outline: 2px solid #00ffcc;
+            outline-offset: 2px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 0.9em;
+                padding-top: 60px;
+            }
+
+            header {
+                padding: 10px 15px;
+            }
+
+            [data-app-header-title] {
+                font-size: 1.3em;
+            }
+
+            [data-app-logo] {
+                height: 24px;
+                margin-right: 10px;
+            }
+
+            [data-app-content] {
+                padding: 24px 16px 56px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.85em;
+                padding-top: 55px;
+            }
+
+            header {
+                padding: 8px 12px;
+            }
+
+            [data-app-header-title] {
+                font-size: 1.1em;
+            }
+
+            [data-app-logo] {
+                height: 20px;
+                margin-right: 8px;
+            }
+
+            [data-app-content] {
+                padding: 15px;
+            }
+
+            [data-app-content] ul ul {
+                margin-left: 6px;
+                padding-left: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header data-app-header>
+        <div data-app-header-title-container>
+            <img data-app-logo src="favicon-96x96.png" alt="Logo" style="margin-right: 5px;">
+            <h1 data-app-header-title style="margin: 0;">
+                <a data-title-link data-default-href="index.html"></a>
+            </h1>
+        </div>
+        <button type="button" data-app-back-button>BACK</button>
+        <div data-header-spacer></div>
+    </header>
+
+    <div data-app-content></div>
+
+    <script data-app-script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const titleElement = document.querySelector('[data-app-title]');
+            const headerTitleLink = document.querySelector('[data-title-link]');
+            const contentElement = document.querySelector('[data-app-content]');
+            const backButton = document.querySelector('[data-app-back-button]');
+
+            if (backButton) {
+                backButton.addEventListener('click', () => window.history.back());
+            }
+
+            if (titleElement && headerTitleLink) {
+                headerTitleLink.textContent = titleElement.getAttribute('data-app-title');
+                headerTitleLink.href = headerTitleLink.getAttribute('data-default-href');
+                document.title = headerTitleLink.textContent;
+            }
+
+            // Build a <ul> from an array of nodes.
+            //  - node with "children"  -> collapsible category (any depth)
+            //  - node with "url"       -> link (".json" urls open that file in this viewer)
+            function buildList(nodes) {
+                const ul = document.createElement('ul');
+
+                nodes.forEach(node => {
+                    const li = document.createElement('li');
+
+                    if (Array.isArray(node.children)) {
+                        const details = document.createElement('details');
+                        // Categories start open; set "collapsed": true in the JSON to start closed
+                        details.open = node.collapsed !== true;
+
+                        const summary = document.createElement('summary');
+                        summary.textContent = node.displayName;
+                        details.appendChild(summary);
+                        details.appendChild(buildList(node.children));
+                        li.appendChild(details);
+                    } else if (node.url) {
+                        const a = document.createElement('a');
+                        a.setAttribute('data-app-link-item', '');
+                        a.textContent = node.displayName;
+
+                        if (!node.url.startsWith('http')) {
+                            const currentUrl = new URL(window.location.href);
+                            currentUrl.searchParams.set('json', node.url);
+                            a.href = currentUrl;
+                        } else {
+                            a.href = node.url;
+                        }
+                        li.appendChild(a);
+                    }
+
+                    ul.appendChild(li);
+                });
+
+                return ul;
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentJsonFile = urlParams.get('json') || 'default_links.json';
+
+            fetch(currentJsonFile)
+                .then(response => response.json())
+                .then(data => {
+                    if (Array.isArray(data)) {
+                        contentElement.appendChild(buildList(data));
+                    } else {
+                        contentElement.textContent = 'Error loading links.';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching JSON:', error);
+                    contentElement.textContent = 'Failed to load links.';
+                });
+        });
+    </script>
+</body>
+
+</html>
