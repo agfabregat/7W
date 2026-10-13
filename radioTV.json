@@ -11,7 +11,7 @@
 {"url":"https://98dh.site/","displayName":"TENNIS 98DH"},
     
     {"url":"http://atdhes.eu/","displayName":"Atdhes sports"},
-
+    {"url":"http://totalsport.me/schedule.txt","displayName":"TotalSport"},
 
     {"url":"https://live.sport365.stream/tennis","displayName":"Sport365 Tennis"},
     
@@ -21,16 +21,22 @@
     
     {"url":"https://livesport24.net/","displayName":"LiveSport24"},
     {"url":"https://www.seirsanduk.us/index.php","displayName":"seirsanduk bulgarian"},
-    
+            {"url":"https://mainportal66.com/","displayName":"MainPortal66"},
+{"url":"https://tennistream.online/","displayName":"TENNIS STREAMS"},
+        {"url":"http://livetv.sx/enx/","displayName":"LiveTv (all live sports)"},
+        {"url":"https://www.istreameast.com.co/streams/nfl","displayName":"iStreamEast"},
+        {"url":"https://v5.gostreameast.link/","displayName":"StreamEast Mirrors"},
     {"url":"https://www.fis-ski.com/DB/alpine-skiing/","displayName":"Skiing Results"}
           }
         ]
       }
     ]
   },
-    
-    
-    {"url":"https://s7-tv.blogspot.com/2024/07/usa-tv-online-live-stream.html","displayName":"USATV"},
+  {
+        "displayName": "News",
+        "children": [
+          {  
+                {"url":"https://s7-tv.blogspot.com/2024/07/usa-tv-online-live-stream.html","displayName":"USATV"},
         {"url":"https://puffer.stanford.edu/player/","displayName":"Puffer agf_11-30 PE#5"},
 {"url":"https://newsplays.com/","displayName":"NewsPlays"},
     {"url":"https://tvivu.com/live-tv","displayName":"tvivu"},
@@ -70,23 +76,14 @@
     {"url":"https://www.cxtvlive.com/live-tv/associated-press","displayName":"AP Live"},
     
     {"url":"https://www.livenewsmag.com/fox-news-live-stream/","displayName":"FOXNEWS"},
-    
-    {"url":"https://www.livenewsmag.com/livecnn/","displayName":"CNN"},
-    {"url":"https://www.radios-uruguay.com/radio-centenario","displayName":"Radios Uruguay"},
-    
-    
-        {"url":"https://mainportal66.com/","displayName":"MainPortal66"},
-{"url":"https://tennistream.online/","displayName":"TENNIS STREAMS"},
-        {"url":"http://livetv.sx/enx/","displayName":"LiveTv (all live sports)"},
-        {"url":"https://www.istreameast.com.co/streams/nfl","displayName":"iStreamEast"},
-        {"url":"https://v5.gostreameast.link/","displayName":"StreamEast Mirrors"},
-    
-
-    
-    {"url":"https://esradio.libertaddigital.com/es-la-manana-de-federico/","displayName":"Es la Mañana de Federico"},
-    
-    {"url":"http://www.rtve.es/noticias/directo-la-1/","displayName":"RTVE.ES San Fermin"},
-    
+        {"url":"https://www.aljazeera.com/live/","displayName":"AlJazeera"},
+    {"url":"http://www.epctv.com/","displayName":"Epctv"},
+    {"url":"https://video.sky.it/news/diretta","displayName":"SkyNews (all in italian)"},
+        {"url":"http://www.rtve.es/noticias/directo-la-1/","displayName":"RTVE.ES San Fermin"},
+        {"url":"http://www.livenewsmag.com/bbc-news-uk-live-stream/","displayName":"BBC News"},
+    {"url":"http://tv-online.us/infowars-live-stream/","displayName":"InfoWars"},
+    {"url":"https://www.nasa.gov/nasalive","displayName":"NASA Live"},
+    {"url":"https://eol.jsc.nasa.gov/ESRS/HDEV/","displayName":"NASA Remote Sensing Unit"},
     {"url":"https://www.raiplay.it/dirette/rainews24","displayName":"RAI"},
     
     {"url":"https://www.rt.com/on-air/","displayName":"Russia Today"},
@@ -95,15 +92,6 @@
     {"url":"https://www.bfmtv.com/mediaplayer/live-video/","displayName":"BFMtv France"},
     {"url":"https://www.youtube.com/watch?v=9Auq9mYxFEE","displayName":"SkyTV"},
     {"url":"http://www.freeintertv.com/view/id-1695","displayName":"FreeInterTv"},
-    {"url":"http://totalsport.me/schedule.txt","displayName":"TotalSport"},
-    {"url":"http://www.livenewsmag.com/bbc-news-uk-live-stream/","displayName":"BBC News"},
-    {"url":"http://tv-online.us/infowars-live-stream/","displayName":"InfoWars"},
-    {"url":"https://www.nasa.gov/nasalive","displayName":"NASA Live"},
-    {"url":"https://eol.jsc.nasa.gov/ESRS/HDEV/","displayName":"NASA Remote Sensing Unit"},
-    {"url":"https://www.aljazeera.com/live/","displayName":"AlJazeera"},
-    {"url":"http://www.epctv.com/","displayName":"Epctv"},
-    {"url":"https://video.sky.it/news/diretta","displayName":"SkyNews (all in italian)"},
-    
     {"url":"https://ssl.ustreamix.com/","displayName":"UstreamMix"},
     {"url":"https://tvplayer.com/watch","displayName":"TV Player (uk ip hotmail PE#5)"},
     
@@ -113,9 +101,23 @@
     
     {"url":"http://www.livenewsmag.com/","displayName":"Livenews Channel(s)"},
     {"url":"https://www.livenewson.com/united-kingdom/sky-news-hd.html","displayName":"LivenewsOn"},
+    {"url":"https://www.livenewsmag.com/livecnn/","displayName":"CNN"}
+          }
+  },
+  {
+        "displayName": "Radios",
+        "children": [
+          {  
+    {"url":"https://www.radios-uruguay.com/radio-centenario","displayName":"Radios Uruguay"},
+    {"url":"https://esradio.libertaddigital.com/es-la-manana-de-federico/","displayName":"Es la Mañana de Federico"},
+    
      
     {"url":"http://freshair.npr.org/","displayName":"FreshAir"},
     {"url":"http://www.thislife.org/","displayName":"ThisAmerLife"}
+          }
+  }
+
+
     
     ]
     
