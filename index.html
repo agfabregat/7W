@@ -329,6 +329,47 @@
                 .then(data => {
                     if (Array.isArray(data)) {
                         contentElement.appendChild(buildList(data));
+
+                        // Focusable items that are currently visible, in page order
+                        // (items inside collapsed categories are skipped automatically)
+                        const getItems = () => [
+                            backButton,
+                            ...contentElement.querySelectorAll('summary, a[data-app-link-item]')
+                        ].filter(el => el && el.offsetParent !== null);
+
+                        // Put focus on the first entry as soon as the page loads
+                        const first = contentElement.querySelector('summary, a[data-app-link-item]');
+                        if (first) first.focus();
+
+                        // Remote control / keyboard: Up/Down move between items,
+                        // Right opens a category, Left closes it (Enter/OK also toggles)
+                        document.addEventListener('keydown', e => {
+                            const items = getItems();
+                            const i = items.indexOf(document.activeElement);
+
+                            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                                e.preventDefault();
+                                if (i === -1) {
+                                    items[0 + (items[0] === backButton ? 1 : 0)]?.focus();
+                                } else {
+                                    items[i + (e.key === 'ArrowDown' ? 1 : -1)]?.focus();
+                                }
+                            } else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+                                const el = document.activeElement;
+                                if (el && el.tagName === 'SUMMARY') {
+                                    e.preventDefault();
+                                    el.parentElement.open = (e.key === 'ArrowRight');
+                                } else if (e.key === 'ArrowLeft' && el) {
+                                    // From a link, jump back up to its parent category
+                                    const parent = el.closest('details');
+                                    if (parent) {
+                                        e.preventDefault();
+                                        parent.open = false;
+                                        parent.querySelector('summary').focus();
+                                    }
+                                }
+                            }
+                        });
                     } else {
                         contentElement.textContent = 'Error loading links.';
                     }
