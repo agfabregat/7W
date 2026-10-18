@@ -13,6 +13,11 @@
     <style data-app-style>
         /* One knob controls everything: all sizes below are in rem.
            Scales with screen width: ~18px on phones, ~29px on a 1920px TV/monitor. */
+        :root {
+            --list-width: 44rem;
+            --gutter: 1rem;
+        }
+
         html {
             font-size: clamp(18px, 0.9vw + 12px, 34px);
             -webkit-text-size-adjust: 100%;
@@ -36,7 +41,7 @@
             backdrop-filter: blur(14px);
             border-bottom: 1px solid #23262b;
             color: #00ffcc;
-            padding: 0.6rem 1rem;
+            padding: 0.6rem max(var(--gutter), calc((100% - var(--list-width)) / 2));
             position: fixed;
             top: 0;
             left: 0;
@@ -59,7 +64,7 @@
             cursor: pointer;
             border-radius: 0.5rem;
             transition: background-color 0.3s ease, color 0.3s ease;
-            margin-right: 1rem;
+            margin-right: 0;
         }
 
         [data-app-back-button]:hover,
@@ -73,7 +78,7 @@
             display: flex;
             align-items: center;
             margin-right: auto;
-            padding: 0.2rem 0.4rem;
+            padding: 0.2rem 0;
         }
 
         [data-app-header-title] {
@@ -100,8 +105,8 @@
 
         /* ---------- Vertical hierarchical list ---------- */
         [data-app-content] {
-            padding: 1.5rem 1rem 4rem;
-            max-width: 44rem;
+            padding: 1.5rem var(--gutter) 4rem;
+            max-width: var(--list-width);
             margin: 0 auto;
         }
 
@@ -224,8 +229,13 @@
 
         /* Phones: use the full width, tighter indent */
         @media (max-width: 600px) {
+            :root {
+                --gutter: 0.8rem;
+            }
+
             [data-app-content] {
-                padding: 1rem 0.8rem 3rem;
+                padding-top: 1rem;
+                padding-bottom: 3rem;
             }
 
             [data-app-content] ul ul {
