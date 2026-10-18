@@ -4,19 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-app-title="7WINDS v2"></title>
+    <title data-app-title="7WINDS"></title>
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
     <style data-app-style>
+        /* One knob controls everything: all sizes below are in rem.
+           Scales with screen width: ~18px on phones, ~29px on a 1920px TV/monitor. */
+        html {
+            font-size: clamp(18px, 0.9vw + 12px, 34px);
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             margin: 0;
-            padding-top: 70px;
+            padding-top: 4.5rem;
             background-color: #0e0f11;
             color: #e8eaed;
+            font-size: 1rem;
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -28,7 +36,7 @@
             backdrop-filter: blur(14px);
             border-bottom: 1px solid #23262b;
             color: #00ffcc;
-            padding: 15px 15px 15px 25px;
+            padding: 0.6rem 1rem;
             position: fixed;
             top: 0;
             left: 0;
@@ -41,31 +49,35 @@
         }
 
         [data-app-back-button] {
-            font-size: 0.7em;
-            padding: 5px 20px;
+            font-size: 0.8rem;
+            font-family: inherit;
+            padding: 0.4rem 1.1rem;
+            min-height: 2.4rem;
             border: 1px solid #00ffcc;
             background-color: transparent;
             color: #00ffcc;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 0.5rem;
             transition: background-color 0.3s ease, color 0.3s ease;
-            margin-right: 55px;
+            margin-right: 1rem;
         }
 
-        [data-app-back-button]:hover {
+        [data-app-back-button]:hover,
+        [data-app-back-button]:focus {
             background-color: #00ffcc;
             color: #121212;
+            outline: none;
         }
 
         [data-app-header-title-container] {
             display: flex;
             align-items: center;
-            margin-left: 15px;
             margin-right: auto;
-            padding: 8px 20px;
+            padding: 0.2rem 0.4rem;
         }
 
         [data-app-header-title] {
+            font-size: 1.3rem;
             text-align: left;
             margin: 0;
             font-weight: 600;
@@ -77,8 +89,8 @@
         }
 
         [data-app-logo] {
-            height: 30px;
-            margin-right: 15px;
+            height: 2rem;
+            margin-right: 0.6rem;
         }
 
         [data-header-spacer] {
@@ -88,8 +100,8 @@
 
         /* ---------- Vertical hierarchical list ---------- */
         [data-app-content] {
-            padding: 32px 24px 64px;
-            max-width: 680px;
+            padding: 1.5rem 1rem 4rem;
+            max-width: 44rem;
             margin: 0 auto;
         }
 
@@ -101,8 +113,8 @@
 
         /* Nested levels: indented with a guide line */
         [data-app-content] ul ul {
-            margin: 2px 0 10px 14px;
-            padding-left: 14px;
+            margin: 0.15rem 0 0.6rem 0.8rem;
+            padding-left: 0.8rem;
             border-left: 2px solid #1f2227;
         }
 
@@ -111,16 +123,16 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 52px;
-            margin: 4px 0;
-            padding: 12px 18px;
+            min-height: 3rem;
+            margin: 0.25rem 0;
+            padding: 0.7rem 1rem;
             box-sizing: border-box;
             background-color: #17191d;
             border: 1px solid #23262b;
-            border-radius: 14px;
+            border-radius: 0.8rem;
             text-decoration: none;
             color: #e8eaed;
-            font-size: 1.02em;
+            font-size: 1.05rem;
             transition: background-color 0.15s ease, border-color 0.15s ease;
         }
 
@@ -148,22 +160,22 @@
 
         /* Category headings (collapsible) */
         details {
-            margin: 10px 0 4px;
+            margin: 0.6rem 0 0.25rem;
         }
 
         summary {
             display: flex;
             align-items: center;
-            gap: 10px;
-            min-height: 48px;
-            padding: 8px 6px;
+            gap: 0.6rem;
+            min-height: 3rem;
+            padding: 0.5rem 0.4rem;
             box-sizing: border-box;
             cursor: pointer;
             list-style: none;
             color: #00ffcc;
             font-weight: 600;
-            font-size: 1.05em;
-            border-radius: 12px;
+            font-size: 1.15rem;
+            border-radius: 0.7rem;
             user-select: none;
             transition: background-color 0.15s ease;
         }
@@ -189,62 +201,36 @@
             background-color: rgba(0, 255, 204, 0.07);
         }
 
-        summary:focus-visible,
-        [data-app-link-item]:focus-visible {
-            outline: 2px solid #00ffcc;
+        /* Strong, always-visible focus highlight (for keyboard / TV remote) */
+        summary:focus,
+        [data-app-link-item]:focus {
+            outline: 3px solid #00ffcc;
             outline-offset: 2px;
         }
 
-        @media (max-width: 768px) {
-            body {
-                font-size: 0.9em;
-                padding-top: 60px;
-            }
-
-            header {
-                padding: 10px 15px;
-            }
-
-            [data-app-header-title] {
-                font-size: 1.3em;
-            }
-
-            [data-app-logo] {
-                height: 24px;
-                margin-right: 10px;
-            }
-
-            [data-app-content] {
-                padding: 24px 16px 56px;
-            }
+        summary:focus {
+            background-color: rgba(0, 255, 204, 0.18);
         }
 
-        @media (max-width: 480px) {
-            body {
-                font-size: 0.85em;
-                padding-top: 55px;
-            }
+        [data-app-link-item]:focus {
+            background-color: #1b2f2d;
+            border-color: #00ffcc;
+        }
 
-            header {
-                padding: 8px 12px;
-            }
+        [data-app-link-item]:focus::after {
+            color: #00ffcc;
+            transform: translateX(3px);
+        }
 
-            [data-app-header-title] {
-                font-size: 1.1em;
-            }
-
-            [data-app-logo] {
-                height: 20px;
-                margin-right: 8px;
-            }
-
+        /* Phones: use the full width, tighter indent */
+        @media (max-width: 600px) {
             [data-app-content] {
-                padding: 15px;
+                padding: 1rem 0.8rem 3rem;
             }
 
             [data-app-content] ul ul {
-                margin-left: 6px;
-                padding-left: 10px;
+                margin-left: 0.4rem;
+                padding-left: 0.6rem;
             }
         }
     </style>
